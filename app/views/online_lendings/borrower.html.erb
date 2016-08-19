@@ -1,0 +1,31 @@
+
+<p>
+  <label>Name:</label> <span><%= @borrower.first_name %> <%= @borrower.last_name %></span>
+</p>
+<p>
+  <label>Amount Need:</label> <span><%= @borrower.money %></span>
+</p>
+<p>
+  <label>Amount Raised:</label> <span><%= @borrower.raised%></span>
+</p>
+
+
+<h3>List of people who lend you money:</h3>
+<table>
+	<thead>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Amount Lent</th>
+	</thead>
+	<tbody>
+		<% if @list %>
+			<% @list.each do |list| %>
+			<tr>
+				<td><%= list.lender.first_name %> <%= list.borrower.last_name %></td>
+				<td><%= list.lender.email %></td>
+				<td><%= list.amount %></td>
+      </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>

@@ -1,0 +1,102 @@
+<fieldset>
+    <legend>Lender</legend>
+    <% if flash[:errors] %>
+    <% flash[:errors].each do |e| %>
+      <p> <%= e %> </p>
+    <% end %>
+  <% end %>
+<form action="/lenders" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<p>
+		<label>First Name:
+		<input type="text" name="user[first_name]">
+    </label>
+	</p>
+  <p>
+    <label> last Name:
+      <input type="text" name="user[last_name]">
+    </label>
+  </p>
+  <p>
+    <label> Email:
+      <input type="email" name="user[email]">
+    </label>
+  </p>
+	<p>
+		<label>Password:
+		<input type="password" name="user[password]">
+    </label>
+	</p>
+<p>*Password should be at least 8 characters</p>
+  <p>
+    <label>Password Confirmation
+    <input type="password" name="user[password_confirmation]" id="Password Confirmation">
+    </label>
+  </p>
+  <p>
+    <label> Money:
+      <input type="text" name="user[money]">
+    </label>
+  </p>
+	<input type="submit" value="Register">
+  <a href="/online_lendings/login">Already a Member?</a>
+
+</fieldset>
+</form>
+
+
+<fieldset>
+  <legend>Borrower</legend>
+  <% if flash[:error] %>
+    <% flash[:error].each do |e| %>
+      <p><%= e %></p>
+    <% end %>
+  <% end %>
+<form action="/borrowers" method="post">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<p>
+  <label>First Name:
+  <input type="text" name="user[first_name]">
+  </label>
+</p>
+<p>
+  <label> last Name:
+    <input type="text" name="user[last_name]">
+  </label>
+</p>
+<p>
+  <label> Email:
+    <input type="email" name="user[email]">
+  </label>
+</p>
+<p>
+  <label>Password:
+  <input type="password" name="user[password]">
+  </label>
+</p>
+<p>*Password should be at least 8 characters</p>
+<p>
+  <label>Password Confirmation
+  <input type="password" name="user[password_confirmation]" id="Password Confirmation">
+  </label>
+</p>
+<p>
+  <label> Need Money For:
+    <input type="text" name="user[purpose]">
+  </label>
+</p>
+<p>
+  <label> Description:
+<textarea name="user[description]" rows="8" cols="40"></textarea>
+</label>
+</p>
+<p>
+  <label> Amount Needed:
+    <input type="text" name="user[money]">
+  </label>
+</p>
+<input type="submit" value="Register">
+<a href="/online_lendings/login">Already a Member?</a>
+
+</fieldset>
+</form>

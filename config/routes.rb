@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'online_lendings/register'
+  root 'online_lendings#register'
+  post 'lenders' => 'lenders#create'
+  post 'borrowers' => 'borrowers#create'
+  get 'online_lendings/lender/:id' => 'online_lendings#lender', :as => "lendings"
+  get 'online_lendings/borrower/:id' => 'online_lendings#borrower', :as => "borrower"
+
+  delete "sessions" => "sessions#destroy", :as => "session_destroy"
+  post '/sessions' => 'sessions#create'
+  post '/histories' => 'histories#create'
+  get 'online_lendings/login'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
